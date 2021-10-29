@@ -11,26 +11,31 @@ import org.bukkit.entity.Player;
 public class GamemodeSurvivalCommand implements CommandExecutor {
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
-        Player player = (Player) sender;
 
         if (args.length > 0) {
-            if (player.hasPermission("amazinutilities.gamemode.survival.others")) {
+            if (sender.hasPermission("amazinutilities.gamemode.survival.others")) {
                 String targetArg = args[0];
                 Player target = Bukkit.getPlayer(targetArg);
                 if (target == null) {
-                    player.sendMessage(ChatColor.RED + "That player doesn't exist or isn't online");
+                    sender.sendMessage(ChatColor.RED + "That player doesn't exist or isn't online");
                 } else {
                     target.setGameMode(GameMode.SURVIVAL);
                 }
             } else {
-                sender.sendMessage(ChatColor.RED + "You don't have permission to execute this command (amazinutilities.gamemode.survival.others)");
+                sender.sendMessage(ChatColor.RED + "You don't have permission to execute this command (amazinutilities.gamemode.adventure.others)");
             }
         } else {
-            if (player.hasPermission("amazinutilities.gamemode.survival")) {
-                player.setGameMode(GameMode.SURVIVAL);
+            if (sender instanceof Player) {
+                Player player = (Player) sender;
+                if (player.hasPermission("amazinutilities.gamemode.survival")) {
+                    player.setGameMode(GameMode.SURVIVAL);
+                } else {
+                    sender.sendMessage(ChatColor.RED + "You don't have permission to execute this command (amazinutilities.gamemode.adventure)");
+                }
             } else {
-                sender.sendMessage(ChatColor.RED + "You don't have permission to execute this command (amazinutilities.gamemode.survival)");
+                sender.sendMessage("This command can only be executed by a player");
             }
+
         }
 
         return true;

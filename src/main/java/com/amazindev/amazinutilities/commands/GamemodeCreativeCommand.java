@@ -11,25 +11,31 @@ import org.bukkit.entity.Player;
 public class GamemodeCreativeCommand implements CommandExecutor {
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
-        Player player = (Player) sender;
 
         if (args.length > 0) {
-            if (player.hasPermission("amazinutilities.gamemode.creative.others")) {
-                Player target = Bukkit.getPlayer(args[0]);
+            if (sender.hasPermission("amazinutilities.gamemode.creative.others")) {
+                String targetArg = args[0];
+                Player target = Bukkit.getPlayer(targetArg);
                 if (target == null) {
-                    player.sendMessage(ChatColor.RED + "That player doesn't exist or isn't online");
+                    sender.sendMessage(ChatColor.RED + "That player doesn't exist or isn't online");
                 } else {
                     target.setGameMode(GameMode.CREATIVE);
                 }
             } else {
-                sender.sendMessage(ChatColor.RED + "You don't have permission to execute this command (amazinutilities.gamemode.creative.others)");
+                sender.sendMessage(ChatColor.RED + "You don't have permission to execute this command (amazinutilities.gamemode.adventure.others)");
             }
         } else {
-            if (player.hasPermission("amazinutilities.gamemode.creative")) {
-                player.setGameMode(GameMode.CREATIVE);
+            if (sender instanceof Player) {
+                Player player = (Player) sender;
+                if (player.hasPermission("amazinutilities.gamemode.creative")) {
+                    player.setGameMode(GameMode.CREATIVE);
+                } else {
+                    sender.sendMessage(ChatColor.RED + "You don't have permission to execute this command (amazinutilities.gamemode.adventure)");
+                }
             } else {
-                sender.sendMessage(ChatColor.RED + "You don't have permission to execute this command (amazinutilities.gamemode.creative)");
+                sender.sendMessage("This command can only be executed by a player");
             }
+
         }
 
         return true;
