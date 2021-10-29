@@ -11,17 +11,21 @@ public class AnnouncementCommand implements CommandExecutor {
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
 
-        StringBuilder announcedesc1 = new StringBuilder();
-        for (int i = 0; i < args.length; i++) {
-            announcedesc1.append(args[i] + " ");
+        if (sender.hasPermission("amazinutilities.announce")) {
+            StringBuilder announcedesc1 = new StringBuilder();
+            for (int i = 0; i < args.length; i++) {
+                announcedesc1.append(args[i] + " ");
+            }
+
+            Player player = (Player) sender;
+
+
+            String announcedesc2 = announcedesc1.toString().trim();
+            Bukkit.broadcastMessage(ChatColor.RED + "Announcement by " + player.getDisplayName() + " : " + ChatColor.GOLD + announcedesc2);
+        } else {
+            sender.sendMessage(ChatColor.RED + "You don't have permission to execute this command (amazinutilities.announce)");
         }
 
-        String PlayerSender = sender.getName();
-        Player PlayerSender2 = Bukkit.getPlayer(PlayerSender);
-
-
-        String announcedesc2 = announcedesc1.toString().trim();
-        Bukkit.broadcastMessage(ChatColor.RED + "Announcement by " + PlayerSender2.getDisplayName() + " : " + ChatColor.GOLD + announcedesc2);
         return true;
     }
 }

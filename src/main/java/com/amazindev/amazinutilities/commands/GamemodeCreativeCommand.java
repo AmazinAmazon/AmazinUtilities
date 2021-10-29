@@ -1,6 +1,7 @@
 package com.amazindev.amazinutilities.commands;
 
 import org.bukkit.Bukkit;
+import org.bukkit.ChatColor;
 import org.bukkit.GameMode;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
@@ -13,16 +14,23 @@ public class GamemodeCreativeCommand implements CommandExecutor {
         Player player = (Player) sender;
 
         if (args.length > 0) {
-            String targetArg = args[0];
-            Player target = Bukkit.getPlayer(targetArg);
-
-            if (target == null) {
-                player.sendMessage("This player isn't online");
+            if (player.hasPermission("amazinutilities.gamemode.creative.others")) {
+                String targetArg = args[0];
+                Player target = Bukkit.getPlayer(targetArg);
+                if (target == null) {
+                    player.sendMessage("This player isn't online");
+                } else {
+                    target.setGameMode(GameMode.CREATIVE);
+                }
             } else {
-                target.setGameMode(GameMode.CREATIVE);
+                sender.sendMessage(ChatColor.RED + "You don't have permission to execute this command (amazinutilities.gamemode.creative.others)");
             }
         } else {
-            player.setGameMode(GameMode.CREATIVE);
+            if (player.hasPermission("amazinutilities.gamemode.creative")) {
+                player.setGameMode(GameMode.CREATIVE);
+            } else {
+                sender.sendMessage(ChatColor.RED + "You don't have permission to execute this command (amazinutilities.gamemode.creative)");
+            }
         }
 
         return true;
