@@ -30,6 +30,11 @@ commands:
   afk:
     description: Go afk
     usage: /<command>
+  tp2p:
+    description: Tp directly to someone
+    usage: /<command> <player>
+    aliases:
+      - tp2person
   day:
     description: Set the time in your world to day
     usage: /<command>
