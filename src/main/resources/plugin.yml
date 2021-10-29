@@ -30,3 +30,9 @@ commands:
   afk:
     description: Go afk
     usage: /<command>
+  day:
+    description: Set the time in your world to day
+    usage: /<command>
+  night:
+    description: Set the time in your world to night
+    usage: /<command>

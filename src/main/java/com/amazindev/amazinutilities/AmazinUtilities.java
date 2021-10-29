@@ -21,6 +21,8 @@ public final class AmazinUtilities extends JavaPlugin {
         getCommand("tphere").setExecutor(new TphereCommand());
         getCommand("announcement").setExecutor(new AnnouncementCommand());
         getCommand("afk").setExecutor(new AfkCommand());
+        getCommand("day").setExecutor(new DayCommand());
+        getCommand("night").setExecutor(new NightCommand());
     }
 
     @Override
