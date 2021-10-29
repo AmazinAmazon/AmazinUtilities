@@ -6,6 +6,18 @@ authors: [ AmazinAmazon, Enrimangamer ]
 description: A simple alternative to EssentialsX
 website: amazindev.com
 commands:
+  gma:
+    description: Go in adventure mode
+    usage: /<command> <args>
+  gmc:
+    description: Go in creative mode
+    usage: /<command> <args>
+  gmsp:
+    description: Go in spectator mode
+    usage: /<command> <args>
+  gms:
+    description: Go in survival mode
+    usage: /<command> <args>
   announcement:
     description: Make an announcement in chat.
     usage: </command> <args>
