@@ -41,3 +41,9 @@ commands:
   night:
     description: Set the time in your world to night
     usage: /<command>
+  setspawn:
+    description: Sets the spawn of the currect world
+    usage: /<command>
+  spawn:
+    description: Teleport to the world spawn
+    usage: /<command>

@@ -28,7 +28,7 @@ public class TphereCommand implements CommandExecutor {
                 sender.sendMessage(ChatColor.RED + "You don't have permission to execute this command (amazinutilities.tphere)");
             }
         } else {
-            sender.sendMessage("This command can only be executed by a player.");
+            sender.sendMessage("This command can only be executed by a player");
         }
         return true;
     }

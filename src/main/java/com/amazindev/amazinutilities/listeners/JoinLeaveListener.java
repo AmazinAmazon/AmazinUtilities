@@ -20,9 +20,9 @@ public class JoinLeaveListener implements Listener {
         Player player = e.getPlayer();
         Location location = player.getLocation();
         if (player.hasPlayedBefore()) {
-            e.setJoinMessage(ChatColor.YELLOW + "Welcome back " + player.getDisplayName());
+            e.setJoinMessage(ChatColor.YELLOW + "Welcome back " + player.getName());
         } else {
-            e.setJoinMessage(ChatColor.LIGHT_PURPLE + "Welcome " + player.getDisplayName() + " to the server! Have fun!");
+            e.setJoinMessage(ChatColor.LIGHT_PURPLE + "Welcome " + player.getName() + " to the server! Have fun!");
 
             Firework firework = (Firework) location.getWorld().spawnEntity(location, EntityType.FIREWORK);
             FireworkMeta fireworkMeta = firework.getFireworkMeta();
@@ -35,6 +35,6 @@ public class JoinLeaveListener implements Listener {
     @EventHandler
     public void onQuit(PlayerQuitEvent e) {
         Player player = e.getPlayer();
-        e.setQuitMessage(ChatColor.YELLOW + "" + player + " has left the server. See you soon!");
+        e.setQuitMessage(ChatColor.YELLOW + "" + player.getName() + " has left the server. See you soon!");
     }
 }

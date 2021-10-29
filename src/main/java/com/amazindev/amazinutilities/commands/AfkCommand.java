@@ -37,7 +37,7 @@ public class AfkCommand implements CommandExecutor {
             }
 
         } else {
-            sender.sendMessage("This command can only be executed by a player.");
+            sender.sendMessage("This command can only be executed by a player");
         }
 
 

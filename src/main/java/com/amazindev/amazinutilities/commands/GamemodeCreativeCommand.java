@@ -15,8 +15,7 @@ public class GamemodeCreativeCommand implements CommandExecutor {
 
         if (args.length > 0) {
             if (player.hasPermission("amazinutilities.gamemode.creative.others")) {
-                String targetArg = args[0];
-                Player target = Bukkit.getPlayer(targetArg);
+                Player target = Bukkit.getPlayer(args[0]);
                 if (target == null) {
                     player.sendMessage(ChatColor.RED + "That player doesn't exist or isn't online");
                 } else {

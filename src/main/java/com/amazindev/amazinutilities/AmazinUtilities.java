@@ -28,6 +28,8 @@ public final class AmazinUtilities extends JavaPlugin {
         getCommand("tp2p").setExecutor(new Tp2pCommand());
         getCommand("day").setExecutor(new DayCommand());
         getCommand("night").setExecutor(new NightCommand());
+        getCommand("setspawn").setExecutor(new SetSpawnCommand());
+        getCommand("spawn").setExecutor(new SpawnCommand());
     }
 
     @Override

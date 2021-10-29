@@ -19,7 +19,7 @@ public class DayCommand implements CommandExecutor {
                 sender.sendMessage(ChatColor.RED + "You don't have permission to execute this command (amazinutilities.setday)");
             }
         } else {
-            sender.sendMessage("This command can only be executed by a player.");
+            sender.sendMessage("This command can only be executed by a player");
         }
 
         return true;
