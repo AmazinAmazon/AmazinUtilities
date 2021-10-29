@@ -1,0 +1,7 @@
+name: AmazinUtilities
+version: '${project.version}'
+main: com.amazindev.amazinutilities.AmazinUtilities
+api-version: 1.17
+authors: [ AmazinAmazon, Enrimangamer ]
+description: A simple alternative to EssentialsX
+website: amazindev.com
