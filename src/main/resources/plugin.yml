@@ -8,19 +8,22 @@ website: amazindev.com
 commands:
   gma:
     description: Go in adventure mode
-    usage: /<command> <args>
+    usage: /<command> <player>
   gmc:
     description: Go in creative mode
-    usage: /<command> <args>
+    usage: /<command> <player>
   gmsp:
     description: Go in spectator mode
-    usage: /<command> <args>
+    usage: /<command> <player>
   gms:
     description: Go in survival mode
-    usage: /<command> <args>
+    usage: /<command> <player>
   announcement:
     description: Make an announcement in chat.
     usage: </command> <args>
     aliases:
       - announce
       - ann
+  tphere:
+    description: Tp someone to your location
+    usage: /<command> <player>

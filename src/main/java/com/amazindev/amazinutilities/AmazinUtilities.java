@@ -1,10 +1,6 @@
 package com.amazindev.amazinutilities;
 
-import com.amazindev.amazinutilities.commands.GamemodeAdventureCommand;
-import com.amazindev.amazinutilities.commands.GamemodeCreativeCommand;
-import com.amazindev.amazinutilities.commands.GamemodeSpectatorCommand;
-import com.amazindev.amazinutilities.commands.GamemodeSurvivalCommand;
-import com.amazindev.amazinutilities.commands.AnnouncementCommand;
+import com.amazindev.amazinutilities.commands.*;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public final class AmazinUtilities extends JavaPlugin {
@@ -18,7 +14,7 @@ public final class AmazinUtilities extends JavaPlugin {
         getCommand("gmc").setExecutor(new GamemodeCreativeCommand());
         getCommand("gmsp").setExecutor(new GamemodeSpectatorCommand());
         getCommand("gms").setExecutor(new GamemodeSurvivalCommand());
-
+        getCommand("tphere").setExecutor(new TphereCommand());
         getCommand("announcement").setExecutor(new AnnouncementCommand());
     }
 
