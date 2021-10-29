@@ -27,3 +27,6 @@ commands:
   tphere:
     description: Tp someone to your location
     usage: /<command> <player>
+  afk:
+    description: Go afk
+    usage: /<command>

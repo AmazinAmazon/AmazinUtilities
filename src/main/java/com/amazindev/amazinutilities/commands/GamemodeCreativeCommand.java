@@ -18,7 +18,7 @@ public class GamemodeCreativeCommand implements CommandExecutor {
                 String targetArg = args[0];
                 Player target = Bukkit.getPlayer(targetArg);
                 if (target == null) {
-                    player.sendMessage("This player isn't online");
+                    player.sendMessage(ChatColor.RED + "That player doesn't exist or isn't online");
                 } else {
                     target.setGameMode(GameMode.CREATIVE);
                 }
