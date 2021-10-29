@@ -5,6 +5,7 @@ import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
+import org.bukkit.entity.Player;
 
 public class AnnouncementCommand implements CommandExecutor {
     @Override
@@ -15,9 +16,12 @@ public class AnnouncementCommand implements CommandExecutor {
             announcedesc1.append(args[i] + " ");
         }
 
+        String PlayerSender = sender.getName();
+        Player PlayerSender2 = Bukkit.getPlayer(PlayerSender);
+
 
         String announcedesc2 = announcedesc1.toString().trim();
-        Bukkit.broadcastMessage(ChatColor.RED + "Announcement by " + sender + " : " + ChatColor.GOLD + announcedesc2);
+        Bukkit.broadcastMessage(ChatColor.RED + "Announcement by " + PlayerSender2.getDisplayName() + " : " + ChatColor.GOLD + announcedesc2);
         return true;
     }
 }
