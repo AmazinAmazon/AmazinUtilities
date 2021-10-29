@@ -11,9 +11,8 @@ public class GamemodeSpectatorCommand implements CommandExecutor {
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         Player player = (Player) sender;
-        player.setGameMode(GameMode.SPECTATOR);
 
-        if (args[0] != null) {
+        if (args.length > 0) {
             String targetArg = args[0];
             Player target = Bukkit.getPlayer(targetArg);
 
@@ -22,6 +21,8 @@ public class GamemodeSpectatorCommand implements CommandExecutor {
             } else {
                 target.setGameMode(GameMode.SPECTATOR);
             }
+        } else {
+            player.setGameMode(GameMode.SPECTATOR);
         }
 
 
