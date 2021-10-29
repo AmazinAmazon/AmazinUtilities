@@ -6,7 +6,7 @@ public final class AmazinUtilities extends JavaPlugin {
 
     @Override
     public void onEnable() {
-        // Plugin startup logic
+        System.out.println("Banana");
 
     }
 
