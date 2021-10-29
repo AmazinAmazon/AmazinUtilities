@@ -11,15 +11,18 @@ public class GamemodeCreativeCommand implements CommandExecutor {
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         Player player = (Player) sender;
-        player.setGameMode(GameMode.CREATIVE);
 
-        String targetArg = args[0];
-        Player target = Bukkit.getPlayer(targetArg);
+        if (args.length > 0) {
+            String targetArg = args[0];
+            Player target = Bukkit.getPlayer(targetArg);
 
-        if (target == null) {
-            player.sendMessage("This player isn't online");
+            if (target == null) {
+                player.sendMessage("This player isn't online");
+            } else {
+                target.setGameMode(GameMode.CREATIVE);
+            }
         } else {
-            target.setGameMode(GameMode.CREATIVE);
+            player.setGameMode(GameMode.CREATIVE);
         }
 
         return true;

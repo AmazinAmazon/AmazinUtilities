@@ -11,15 +11,18 @@ public class GamemodeAdventureCommand implements CommandExecutor {
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         Player player = (Player) sender;
-        player.setGameMode(GameMode.ADVENTURE);
 
-        String targetArg = args[0];
-        Player target = Bukkit.getPlayer(targetArg);
+        if (args.length > 0) {
+            String targetArg = args[0];
+            Player target = Bukkit.getPlayer(targetArg);
 
-        if (target == null) {
-            player.sendMessage("This player isn't online");
+            if (target == null) {
+                player.sendMessage("This player isn't online");
+            } else {
+                target.setGameMode(GameMode.ADVENTURE);
+            }
         } else {
-            target.setGameMode(GameMode.ADVENTURE);
+            player.setGameMode(GameMode.ADVENTURE);
         }
 
         return true;
