@@ -63,3 +63,6 @@ commands:
   kickall:
     description: Kick all the players in the server
     usage: /<command> <reason>
+  ping:
+    description: See your ping
+    usage: /<command>

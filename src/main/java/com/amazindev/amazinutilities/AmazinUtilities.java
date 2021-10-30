@@ -41,6 +41,7 @@ public final class AmazinUtilities extends JavaPlugin {
         getCommand("chatcolor").setExecutor(new ChatColorCommand());
         getCommand("tpall").setExecutor(new TpallCommand());
         getCommand("kickall").setExecutor(new KickAllCommand());
+        getCommand("ping").setExecutor(new PingCommand());
     }
 
     @Override
