@@ -60,3 +60,6 @@ commands:
   tpall:
     description: Tp all the players to your location
     usage: /<command>
+  kickall:
+    description: Kick all the players in the server
+    usage: /<command> <reason>
