@@ -10,7 +10,7 @@ import org.bukkit.entity.Player;
 public class TphereCommand implements CommandExecutor {
 
     @Override
-    public boolean onCommand(CommandSender sender, Command command, String s, String[] args) {
+    public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         if (sender instanceof Player) {
             if (sender.hasPermission("amazinutilies.tphere")) {
                 if(args.length > 0) {

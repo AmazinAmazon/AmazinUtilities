@@ -48,6 +48,12 @@ commands:
   spawn:
     description: Teleport to the world spawn
     usage: /<command>
+  ybar:
+    description: Shows y coord in a bossbar
+    usage: /<command>
+  shutdown:
+    description: Shutdown the server with warnings
+    usage: /<command>
   chatcolor:
     description: Change te color of all messages in chat
     usage: /<command> <color>

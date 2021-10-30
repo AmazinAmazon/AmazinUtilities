@@ -1,6 +1,10 @@
 package com.amazindev.amazinutilities;
 
 import com.amazindev.amazinutilities.commands.*;
+import com.amazindev.amazinutilities.commands.gamemodecommands.GamemodeAdventureCommand;
+import com.amazindev.amazinutilities.commands.gamemodecommands.GamemodeCreativeCommand;
+import com.amazindev.amazinutilities.commands.gamemodecommands.GamemodeSpectatorCommand;
+import com.amazindev.amazinutilities.commands.gamemodecommands.GamemodeSurvivalCommand;
 import com.amazindev.amazinutilities.listeners.DeathListener;
 import com.amazindev.amazinutilities.listeners.JoinLeaveListener;
 import com.amazindev.amazinutilities.listeners.MessageListener;
@@ -32,6 +36,8 @@ public final class AmazinUtilities extends JavaPlugin {
         getCommand("night").setExecutor(new NightCommand());
         getCommand("setspawn").setExecutor(new SetSpawnCommand());
         getCommand("spawn").setExecutor(new SpawnCommand());
+        getCommand("ybar").setExecutor(new YBossBarCommand());
+        getCommand("shutdown").setExecutor(new ShutdownCommand());
         getCommand("chatcolor").setExecutor(new ChatColorCommand());
         getCommand("tpall").setExecutor(new TpallCommand());
     }

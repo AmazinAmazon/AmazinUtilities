@@ -9,7 +9,7 @@ import org.bukkit.entity.Player;
 
 public class Tp2pCommand implements CommandExecutor {
     @Override
-    public boolean onCommand(CommandSender sender, Command command, String s, String[] args) {
+    public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         if (sender instanceof Player) {
             if (sender.hasPermission("amazinutilies.tp2person")) {
                 if(args.length > 0) {
