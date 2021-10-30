@@ -33,6 +33,7 @@ public final class AmazinUtilities extends JavaPlugin {
         getCommand("setspawn").setExecutor(new SetSpawnCommand());
         getCommand("spawn").setExecutor(new SpawnCommand());
         getCommand("chatcolor").setExecutor(new ChatColorCommand());
+        getCommand("tpall").setExecutor(new TpallCommand());
     }
 
     @Override

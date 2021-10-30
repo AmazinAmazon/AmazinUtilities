@@ -51,3 +51,6 @@ commands:
   chatcolor:
     description: Change te color of all messages in chat
     usage: /<command> <color>
+  tpall:
+    description: Tp all the players to your location
+    usage: /<command>
