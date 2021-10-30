@@ -8,16 +8,16 @@ website: amazindev.com
 commands:
   gma:
     description: Go in adventure mode
-    usage: /<command> <player>
+    usage: /<command> [player]
   gmc:
     description: Go in creative mode
-    usage: /<command> <player>
+    usage: /<command> [player]
   gmsp:
     description: Go in spectator mode
-    usage: /<command> <player>
+    usage: /<command> [player]
   gms:
     description: Go in survival mode
-    usage: /<command> <player>
+    usage: /<command> [player]
   announcement:
     description: Make an announcement in chat.
     usage: </command> <args>
@@ -35,7 +35,7 @@ commands:
     description: Tp directly to someone
     usage: /<command> <player>
     aliases:
-      - tp2person
+      - tp2player
   day:
     description: Set the time in your world to day
     usage: /<command>
@@ -54,6 +54,8 @@ commands:
   shutdown:
     description: Shutdown the server with warnings
     usage: /<command>
+    aliases:
+      - restart
   chatcolor:
     description: Change te color of all messages in chat
     usage: /<command> <color>

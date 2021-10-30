@@ -7,8 +7,9 @@ import com.amazindev.amazinutilities.commands.gamemodecommands.GamemodeSpectator
 import com.amazindev.amazinutilities.commands.gamemodecommands.GamemodeSurvivalCommand;
 import com.amazindev.amazinutilities.listeners.DeathListener;
 import com.amazindev.amazinutilities.listeners.JoinLeaveListener;
-import com.amazindev.amazinutilities.listeners.MessageListener;
+import com.amazindev.amazinutilities.listeners.ChatListener;
 import com.amazindev.amazinutilities.listeners.MovementListener;
+import com.amazindev.amazinutilities.listeners.tabcompleters.ChatColorTabComplete;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public final class AmazinUtilities extends JavaPlugin {
@@ -17,11 +18,15 @@ public final class AmazinUtilities extends JavaPlugin {
     public void onEnable() {
         getLogger().info("Plugin started");
 
+        // Enable config
+        getConfig().options().copyDefaults(true);
+        saveDefaultConfig();
+
         // Registering listeners
         getServer().getPluginManager().registerEvents(new MovementListener(), this);
         getServer().getPluginManager().registerEvents(new JoinLeaveListener(), this);
         getServer().getPluginManager().registerEvents(new DeathListener(), this);
-        getServer().getPluginManager().registerEvents(new MessageListener(), this);
+        getServer().getPluginManager().registerEvents(new ChatListener(), this);
 
         // Registering commands
         getCommand("gma").setExecutor(new GamemodeAdventureCommand());
@@ -39,6 +44,7 @@ public final class AmazinUtilities extends JavaPlugin {
         getCommand("ybar").setExecutor(new YBossBarCommand());
         getCommand("shutdown").setExecutor(new ShutdownCommand());
         getCommand("chatcolor").setExecutor(new ChatColorCommand());
+        getCommand("chatcolor").setTabCompleter(new ChatColorTabComplete());
         getCommand("tpall").setExecutor(new TpallCommand());
         getCommand("kickall").setExecutor(new KickAllCommand());
         getCommand("ping").setExecutor(new PingCommand());
