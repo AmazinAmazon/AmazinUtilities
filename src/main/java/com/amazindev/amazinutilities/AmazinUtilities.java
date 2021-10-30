@@ -3,6 +3,7 @@ package com.amazindev.amazinutilities;
 import com.amazindev.amazinutilities.commands.*;
 import com.amazindev.amazinutilities.listeners.DeathListener;
 import com.amazindev.amazinutilities.listeners.JoinLeaveListener;
+import com.amazindev.amazinutilities.listeners.MessageListener;
 import com.amazindev.amazinutilities.listeners.MovementListener;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -16,6 +17,7 @@ public final class AmazinUtilities extends JavaPlugin {
         getServer().getPluginManager().registerEvents(new MovementListener(), this);
         getServer().getPluginManager().registerEvents(new JoinLeaveListener(), this);
         getServer().getPluginManager().registerEvents(new DeathListener(), this);
+        getServer().getPluginManager().registerEvents(new MessageListener(), this);
 
         // Registering commands
         getCommand("gma").setExecutor(new GamemodeAdventureCommand());
@@ -30,6 +32,7 @@ public final class AmazinUtilities extends JavaPlugin {
         getCommand("night").setExecutor(new NightCommand());
         getCommand("setspawn").setExecutor(new SetSpawnCommand());
         getCommand("spawn").setExecutor(new SpawnCommand());
+        getCommand("chatcolor").setExecutor(new ChatColorCommand());
     }
 
     @Override

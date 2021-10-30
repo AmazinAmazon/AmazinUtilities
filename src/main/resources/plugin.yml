@@ -24,6 +24,7 @@ commands:
     aliases:
       - announce
       - ann
+      - broadcast
   tphere:
     description: Tp someone to your location
     usage: /<command> <player>
@@ -47,3 +48,6 @@ commands:
   spawn:
     description: Teleport to the world spawn
     usage: /<command>
+  chatcolor:
+    description: Change te color of all messages in chat
+    usage: /<command> <color>

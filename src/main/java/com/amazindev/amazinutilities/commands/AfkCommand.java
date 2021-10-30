@@ -1,6 +1,5 @@
 package com.amazindev.amazinutilities.commands;
 
-import com.amazindev.amazinutilities.listeners.MovementListener;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
