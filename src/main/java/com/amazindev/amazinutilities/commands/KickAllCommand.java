@@ -31,6 +31,7 @@ public class KickAllCommand implements CommandExecutor {
                         target.kickPlayer(reason2);
                     }
                 }
+                sender.sendMessage(ChatColor.RED + "Succesfully kicked everyone");
             } else {
                 return false;
             }
