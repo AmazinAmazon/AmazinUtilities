@@ -74,3 +74,6 @@ commands:
   seetime:
     description: See the time in your world
     usage: /<command>
+  whois:
+    description: Know everything about someone
+    usage: /<command> <player>

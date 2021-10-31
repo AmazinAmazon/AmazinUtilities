@@ -50,6 +50,7 @@ public final class AmazinUtilities extends JavaPlugin {
         getCommand("ping").setExecutor(new PingCommand());
         getCommand("fly").setExecutor(new FlyCommand());
         getCommand("seetime").setExecutor(new TimeCommand());
+        getCommand("whois").setExecutor(new WhoIsCommand());
     }
 
     @Override
