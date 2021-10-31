@@ -71,3 +71,6 @@ commands:
   fly:
     description: Make yourself fly
     usage: /<command>
+  seetime:
+    description: See the time in your world
+    usage: /<command>

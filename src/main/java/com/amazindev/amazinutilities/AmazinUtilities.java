@@ -49,6 +49,7 @@ public final class AmazinUtilities extends JavaPlugin {
         getCommand("kickall").setExecutor(new KickAllCommand());
         getCommand("ping").setExecutor(new PingCommand());
         getCommand("fly").setExecutor(new FlyCommand());
+        getCommand("seetime").setExecutor(new TimeCommand());
     }
 
     @Override
