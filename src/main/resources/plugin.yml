@@ -68,3 +68,6 @@ commands:
   ping:
     description: See your ping
     usage: /<command>
+  fly:
+    description: Make yourself fly
+    usage: /<command>

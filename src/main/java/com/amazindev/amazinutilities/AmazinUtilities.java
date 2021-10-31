@@ -48,6 +48,7 @@ public final class AmazinUtilities extends JavaPlugin {
         getCommand("tpall").setExecutor(new TpallCommand());
         getCommand("kickall").setExecutor(new KickAllCommand());
         getCommand("ping").setExecutor(new PingCommand());
+        getCommand("fly").setExecutor(new FlyCommand());
     }
 
     @Override
