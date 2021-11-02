@@ -9,27 +9,29 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.plugin.Plugin;
 
 public class ShutdownCommand implements CommandExecutor {
-    private Plugin plugin = AmazinUtilities.getPlugin(AmazinUtilities.class);
+    public JavaPlugin plugin = AmazinUtilities.getPlugin(AmazinUtilities.class);
+
+
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
 
         if (sender.hasPermission("amazinutilities.shutdown")) {
-            Bukkit.broadcastMessage(ChatColor.RED + "SERVER SHUTTING DOWN IN 20 SECONDS, MAKE SURE YOU GET OUT OF COMBAT. SORRY FOR THE INCONVENIENCE.");
+            Bukkit.broadcastMessage(ChatColor.RED + plugin.getConfig().getString("serverShuttingDown"));
 
             Bukkit.getScheduler().scheduleSyncDelayedTask(plugin, () -> {
-                Bukkit.broadcastMessage(ChatColor.RED + "SERVER SHUTTING DOWN IN 15 SECONDS");
+                Bukkit.broadcastMessage(ChatColor.RED + plugin.getConfig().getString("serverShuttingDown15"));
                 Bukkit.getScheduler().scheduleSyncDelayedTask(plugin, () -> {
-                    Bukkit.broadcastMessage(ChatColor.RED + "SERVER SHUTTING DOWN IN 10 SECONDS");
+                    Bukkit.broadcastMessage(ChatColor.RED + plugin.getConfig().getString("serverShuttingDown10"));
                     Bukkit.getScheduler().scheduleSyncDelayedTask(plugin, () -> {
-                        Bukkit.broadcastMessage(ChatColor.RED + "SERVER SHUTTING DOWN IN 5 SECONDS");
+                        Bukkit.broadcastMessage(ChatColor.RED + plugin.getConfig().getString("serverShuttingDown4"));
                         Bukkit.getScheduler().scheduleSyncDelayedTask(plugin, () -> {
-                            Bukkit.broadcastMessage(ChatColor.RED + "SERVER SHUTTING DOWN IN 4 SECONDS");
+                            Bukkit.broadcastMessage(ChatColor.RED + plugin.getConfig().getString("serverShuttingDown3"));
                             Bukkit.getScheduler().scheduleSyncDelayedTask(plugin, () -> {
-                                Bukkit.broadcastMessage(ChatColor.RED + "SERVER SHUTTING DOWN IN 3 SECONDS");
+                                Bukkit.broadcastMessage(ChatColor.RED + plugin.getConfig().getString("serverShuttingDown2"));
                                 Bukkit.getScheduler().scheduleSyncDelayedTask(plugin, () -> {
-                                    Bukkit.broadcastMessage(ChatColor.RED + "SERVER SHUTTING DOWN IN 2 SECONDS");
+                                    Bukkit.broadcastMessage(ChatColor.RED + plugin.getConfig().getString("serverShuttingDown1"));
                                     Bukkit.getScheduler().scheduleSyncDelayedTask(plugin, () -> {
-                                        Bukkit.broadcastMessage(ChatColor.RED + "SERVER SHUTTING DOWN IN 1 SECONDS");
+                                        Bukkit.broadcastMessage(ChatColor.RED + plugin.getConfig().getString("noPerms"));
                                         Bukkit.getScheduler().scheduleSyncDelayedTask(plugin, () -> {
                                             Bukkit.shutdown();
                                         }, 20*1);
@@ -40,6 +42,8 @@ public class ShutdownCommand implements CommandExecutor {
                     }, 20*5);
                 }, 20*5);
             }, 20*5);
+        } else {
+            sender.sendMessage(plugin.getConfig().getString("noPerms") + "(amazinutilities.shutdown)");
         }
 
         return true;

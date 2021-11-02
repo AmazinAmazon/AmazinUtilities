@@ -1,13 +1,16 @@
 package com.amazindev.amazinutilities.commands;
 
+import com.amazindev.amazinutilities.AmazinUtilities;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
+import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Player;
+import org.bukkit.plugin.java.JavaPlugin;
 
 public class TimeCommand implements CommandExecutor {
-
+    public JavaPlugin plugin = AmazinUtilities.getPlugin(AmazinUtilities.class);
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
 
@@ -15,7 +18,7 @@ public class TimeCommand implements CommandExecutor {
             if(sender.hasPermission("amazinutilities.seetime")) {
                 Player player = (Player) sender;
                 long time = player.getWorld().getTime();
-                String time2 = time+"";
+                String time2 = time + "";
                 StringBuilder realtime1 = new StringBuilder();
                     if(time2.length() <= 1) {
                         realtime1.append("00:00").append(time2);
@@ -54,12 +57,12 @@ public class TimeCommand implements CommandExecutor {
                 StringBuilder realtime4 = new StringBuilder();
                 realtime4.append(realtime3);
                 String realtime5 = realtime4.toString().trim();
-                player.sendMessage(ChatColor.AQUA + "The time in your world is " + realtime5);
+                player.sendMessage(ChatColor.AQUA + plugin.getConfig().getString("worldIs") + realtime5);
             } else {
-                sender.sendMessage(ChatColor.RED + "You don't have permission to execute this command (amazinutilities.seetime)");
+                sender.sendMessage(ChatColor.RED + plugin.getConfig().getString("noPerms") + "(amazinutilities.seetime)");
             }
         } else {
-            sender.sendMessage("This command can only be executed by a player");
+            sender.sendMessage(plugin.getConfig().getString("onlyPlayer"));
         }
 
         return true;

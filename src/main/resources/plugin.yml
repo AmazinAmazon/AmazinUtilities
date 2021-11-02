@@ -20,7 +20,7 @@ commands:
     usage: /<command> [player]
   announcement:
     description: Make an announcement in chat.
-    usage: </command> <args>
+    usage: /<command> <args>
     aliases:
       - announce
       - ann
@@ -73,6 +73,12 @@ commands:
     usage: /<command>
   seetime:
     description: See the time in your world
+    usage: /<command>
+  amazinutilitiesreload:
+    description: Reloads the configuration
+    usage: /<command>
+  rules:
+    description: Read the server rules
     usage: /<command>
   whois:
     description: Know everything about someone

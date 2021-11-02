@@ -20,9 +20,10 @@ import java.util.HashMap;
 
 public class YBossBarCommand implements CommandExecutor {
     public BukkitTask task;
-    private Plugin plugin = AmazinUtilities.getPlugin(AmazinUtilities.class);
-
+    public JavaPlugin plugin = AmazinUtilities.getPlugin(AmazinUtilities.class);
     public static HashMap<Player, BossBar> ybarlist = new HashMap<>();
+
+
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         if(sender instanceof Player) {
@@ -30,10 +31,10 @@ public class YBossBarCommand implements CommandExecutor {
             if(player.hasPermission("amazinutilities.ybossbar")) {
                 if(!ybarlist.containsKey(player)) {
                     BossBar ybar = Bukkit.createBossBar("", BarColor.YELLOW, BarStyle.SOLID);
-                    player.sendMessage(ChatColor.GREEN + "Enabled Y bar.");
+                    player.sendMessage(ChatColor.GREEN + plugin.getConfig().getString("enabledYBar"));
                     Integer y = player.getLocation().getBlockY();
                     String ypos = y.toString();
-                    ybar.setTitle(ChatColor.GOLD + "" + ChatColor.BOLD + "Your y coord is: " + ypos);
+                    ybar.setTitle(ChatColor.GOLD + "" + ChatColor.BOLD + plugin.getConfig().getString("ybossbarText") + ypos);
                     ybar.addPlayer(player);
                     ybar.setVisible(true);
                     ybarlist.put(player, ybar);
@@ -44,7 +45,7 @@ public class YBossBarCommand implements CommandExecutor {
                         public void run() {
                             Integer y2 = player.getLocation().getBlockY();
                             String ypos2 = y2.toString();
-                            ybar.setTitle(ChatColor.GOLD + "Your y coord is: " + ypos2);
+                            ybar.setTitle(ChatColor.GOLD + plugin.getConfig().getString("ybossbarText") + ypos2);
 
                         }
                     }.runTaskTimer(plugin, 0, 20 * 3);
@@ -57,13 +58,17 @@ public class YBossBarCommand implements CommandExecutor {
                     }
                     if (ybarlist.containsKey(player)) {
                         BossBar ybar = ybarlist.get(player);
-                        player.sendMessage(ChatColor.RED + "Disabled Y bar.");
+                        player.sendMessage(ChatColor.RED + plugin.getConfig().getString("disabledYBar"));
                         ybar.removeAll();
                         ybarlist.remove(player);
                     }
 
                 }
+            } else {
+                sender.sendMessage(ChatColor.RED + plugin.getConfig().getString("noPerms") + "(amazinutilities.ybossbar)");
             }
+        } else {
+            sender.sendMessage(plugin.getConfig().getString("onlyPlayer"));
         }
 
         return true;

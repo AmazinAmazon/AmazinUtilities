@@ -10,6 +10,7 @@ import java.util.HashMap;
 
 public class ChatColorCommand implements CommandExecutor {
 
+    public JavaPlugin plugin = AmazinUtilities.getPlugin(AmazinUtilities.class);
     public static HashMap<Player, String> hashmapcolor = new HashMap<>();
     public static HashMap<Player, String> hashmapstyle = new HashMap<>();
 
@@ -29,16 +30,15 @@ public class ChatColorCommand implements CommandExecutor {
                             if(args.length > 1) {
                                 if(args[1].equals("bold") | args[1].equals("italic") | args[1].equals("magic") | args[1].equals("strikethrough") | args[1].equals("underline")) {
                                     hashmapstyle.put(player, args[1]);
-                                    player.sendMessage(ChatColor.GREEN + "Your chat color has been set to " + args[0]);
-                                    player.sendMessage(ChatColor.GREEN + "Your chat style has been set to " + args[1]);
+                                    player.sendMessage(ChatColor.GREEN + plugin.getConfig().getString("colorSet") + args[0] + "and " + args[1]);
                                 } else {
-                                    player.sendMessage(ChatColor.RED + "That style isn't available!");
+                                    player.sendMessage(ChatColor.RED + plugin.getConfig().getString("colorUnavailable"));
                                 }
                             } else {
-                                player.sendMessage(ChatColor.GREEN + "Your chat color has been set to " + args[0]);
+                                player.sendMessage(ChatColor.GREEN + plugin.getConfig().getString("colorSet") + args[0]);
                             }
                         } else {
-                            player.sendMessage(ChatColor.RED + "That color isn't available!");
+                            player.sendMessage(ChatColor.RED + plugin.getConfig().getString("colorUnavailable"));
                         }
                     }
                 } else {
@@ -46,10 +46,10 @@ public class ChatColorCommand implements CommandExecutor {
                 }
 
             } else {
-                sender.sendMessage(ChatColor.RED + "You don't have permission to execute this command (amazinutilities.customchat)");
+                sender.sendMessage(ChatColor.RED + plugin.getConfig().getString("noPerms") + "(amazinutilities.customchat)");
             }
         } else {
-            sender.sendMessage("This command can only be executed by a player");
+            sender.sendMessage(plugin.getConfig().getString("onlyPlayer"));
         }
 
         return true;

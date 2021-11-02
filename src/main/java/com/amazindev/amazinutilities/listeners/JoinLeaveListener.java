@@ -26,7 +26,7 @@ public class JoinLeaveListener implements Listener {
 
             Firework firework = (Firework) location.getWorld().spawnEntity(location, EntityType.FIREWORK);
             FireworkMeta fireworkMeta = firework.getFireworkMeta();
-            fireworkMeta.setPower(0);
+            fireworkMeta.setPower(1);
             fireworkMeta.addEffect(FireworkEffect.builder().withColor(Color.AQUA).flicker(true).trail(true).withFade(Color.BLUE).build());
             firework.setFireworkMeta(fireworkMeta);
         }

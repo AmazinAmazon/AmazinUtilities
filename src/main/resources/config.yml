@@ -1,0 +1,41 @@
+# Rules command, you can use color codes if you want. \n For a new line
+rules: "[1] Be kind \n[2] Respect other players \n[3] Listen to staff \n[4] Have fun!"
+#*****************************#
+# Language config starts here #
+#*****************************#
+noPerms: "You don't have permission to execute this command " # + permission node
+playerNotFound: "That player doesn't exist or isn't online"
+onlyPlayer: "This command can only be executed by a player"
+playerOnAfk: "You are now AFK"
+boadcastOnAfk: " is now AFK"
+# player name + ^
+playerOffAfk: "You are now back from being AFK"
+broadcastOffAfk: " is back from being AFK"
+colorUnavailable: "That color/style isn't available!"
+colorSet: "Your chat color/style has been set to " # + player's color choice
+announcementBy: "Announcement by " # + player's name
+successfullyKickedEveryone: "Successfully kicked everyone"
+successfullySetDay: "Successfully set world time to day"
+successfullySetNight: "Successfully set world time to night"
+successfullyReloadedConfig: "Config reloaded!"
+ping: "Your ping is " # + player's ping
+successfullySetSpawn: "Spawn set successfully"
+serverShuttingDown: "SERVER SHUTTING DOWN IN 20 SECONDS, MAKE SURE YOU GET OUT OF COMBAT. SORRY FOR THE INCONVENIENCE."
+serverShuttingDown15: "SERVER SHUTTING DOWN IN 15 SECONDS"
+serverShuttingDown10: "SERVER SHUTTING DOWN IN 10 SECONDS"
+serverShuttingDown5: "SERVER SHUTTING DOWN IN 5 SECONDS"
+serverShuttingDown4: "SERVER SHUTTING DOWN IN 4 SECONDS"
+serverShuttingDown3: "SERVER SHUTTING DOWN IN 3 SECONDS"
+serverShuttingDown2: "SERVER SHUTTING DOWN IN 2 SECONDS"
+serverShuttingDown1: "SERVER SHUTTING DOWN IN 1 SECONDS"
+spawnConfirm: "Teleported to spawn successfully"
+enabledYBar: "Enabled Y bar."
+disabledYBar: "Disabled Y bar."
+ybossbarText: "Your y coord is: " # + player's y cord
+deathLocation: "Your death location is: " # + player's death coordinates
+join: "Welcome back " # + player's name
+firstJoina: "Welcome " # + player's name
+firstJoinb: " to the server! Have fun!"
+leave: " has left the server. See you soon!"
+worldIs: "The time in your world is "
+# player name + ^

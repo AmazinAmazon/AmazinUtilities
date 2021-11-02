@@ -1,5 +1,6 @@
 package com.amazindev.amazinutilities.commands;
 
+import com.amazindev.amazinutilities.AmazinUtilities;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
@@ -8,6 +9,7 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
 public class TphereCommand implements CommandExecutor {
+    public JavaPlugin plugin = AmazinUtilities.getPlugin(AmazinUtilities.class);
 
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
@@ -19,16 +21,16 @@ public class TphereCommand implements CommandExecutor {
                     if(target != null) {
                         target.teleport(player);
                     } else {
-                        sender.sendMessage(ChatColor.RED + "That player doesn't exist or isn't online");
+                        sender.sendMessage(ChatColor.RED + plugin.getConfig().getString("playerNotFound"));
                     }
                 } else {
                     return false;
                 }
             } else {
-                sender.sendMessage(ChatColor.RED + "You don't have permission to execute this command (amazinutilities.tphere)");
+                sender.sendMessage(ChatColor.RED + plugin.getConfig().getString("noPerms") + "(amazinutilities.tphere)");
             }
         } else {
-            sender.sendMessage("This command can only be executed by a player");
+            sender.sendMessage(plugin.getConfig().getString("onlyPlayer"));
         }
         return true;
     }
