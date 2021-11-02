@@ -33,7 +33,7 @@ public class ChatColorCommand implements CommandExecutor {
                             if(args.length > 1) {
                                 if(args[1].equals("bold") | args[1].equals("italic") | args[1].equals("magic") | args[1].equals("strikethrough") | args[1].equals("underline")) {
                                     hashmapstyle.put(player, args[1]);
-                                    player.sendMessage(ChatColor.GREEN + plugin.getConfig().getString("colorSet") + args[0] + "and " + args[1]);
+                                    player.sendMessage(ChatColor.GREEN + plugin.getConfig().getString("colorSet") + args[0] + " and " + args[1]);
                                 } else {
                                     player.sendMessage(ChatColor.RED + plugin.getConfig().getString("colorUnavailable"));
                                 }

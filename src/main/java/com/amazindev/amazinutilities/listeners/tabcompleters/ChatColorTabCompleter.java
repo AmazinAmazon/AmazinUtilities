@@ -7,7 +7,7 @@ import org.bukkit.command.TabCompleter;
 import java.util.Arrays;
 import java.util.List;
 
-public class ChatColorTabComplete implements TabCompleter {
+public class ChatColorTabCompleter implements TabCompleter {
 
     @Override
     public List<String> onTabComplete(CommandSender sender,Command cmd, String label, String[] args) {

@@ -24,22 +24,20 @@ public class ShutdownCommand implements CommandExecutor {
                 Bukkit.getScheduler().scheduleSyncDelayedTask(plugin, () -> {
                     Bukkit.broadcastMessage(ChatColor.RED + plugin.getConfig().getString("serverShuttingDown10"));
                     Bukkit.getScheduler().scheduleSyncDelayedTask(plugin, () -> {
-                        Bukkit.broadcastMessage(ChatColor.RED + plugin.getConfig().getString("serverShuttingDown4"));
+                        Bukkit.broadcastMessage(ChatColor.RED + plugin.getConfig().getString("serverShuttingDown5"));
                         Bukkit.getScheduler().scheduleSyncDelayedTask(plugin, () -> {
-                            Bukkit.broadcastMessage(ChatColor.RED + plugin.getConfig().getString("serverShuttingDown3"));
+                            Bukkit.broadcastMessage(ChatColor.RED + plugin.getConfig().getString("serverShuttingDown4"));
                             Bukkit.getScheduler().scheduleSyncDelayedTask(plugin, () -> {
-                                Bukkit.broadcastMessage(ChatColor.RED + plugin.getConfig().getString("serverShuttingDown2"));
+                                Bukkit.broadcastMessage(ChatColor.RED + plugin.getConfig().getString("serverShuttingDown3"));
                                 Bukkit.getScheduler().scheduleSyncDelayedTask(plugin, () -> {
-                                    Bukkit.broadcastMessage(ChatColor.RED + plugin.getConfig().getString("serverShuttingDown1"));
+                                    Bukkit.broadcastMessage(ChatColor.RED + plugin.getConfig().getString("serverShuttingDown2"));
                                     Bukkit.getScheduler().scheduleSyncDelayedTask(plugin, () -> {
-                                        Bukkit.broadcastMessage(ChatColor.RED + plugin.getConfig().getString("noPerms"));
-                                        Bukkit.getScheduler().scheduleSyncDelayedTask(plugin, () -> {
-                                            Bukkit.shutdown();
-                                        }, 20*1);
-                                    }, 20*1);
-                                }, 20*1);
-                            }, 20*1);
-                        }, 20*1);
+                                        Bukkit.broadcastMessage(ChatColor.RED + plugin.getConfig().getString("serverShuttingDown1"));
+                                        Bukkit.getScheduler().scheduleSyncDelayedTask(plugin, Bukkit::shutdown, 20);
+                                    }, 20);
+                                }, 20);
+                            }, 20);
+                        }, 20);
                     }, 20*5);
                 }, 20*5);
             }, 20*5);

@@ -9,23 +9,20 @@ import com.amazindev.amazinutilities.listeners.DeathListener;
 import com.amazindev.amazinutilities.listeners.JoinLeaveListener;
 import com.amazindev.amazinutilities.listeners.ChatListener;
 import com.amazindev.amazinutilities.listeners.MovementListener;
-import com.amazindev.amazinutilities.listeners.tabcompleters.ChatColorTabComplete;
-import org.bukkit.Bukkit;
+import com.amazindev.amazinutilities.listeners.tabcompleters.AmazinUtilitiesTabCompleter;
+import com.amazindev.amazinutilities.listeners.tabcompleters.ChatColorTabCompleter;
 import org.bukkit.configuration.file.FileConfiguration;
-import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
-
-import java.io.File;
 
 public final class AmazinUtilities extends JavaPlugin {
 
     public static FileConfiguration config;
     public static PluginManager pm;
+    public static double version = 1.1;
 
     @Override
     public void onEnable() {
-        pm = getServer().getPluginManager();
         getLogger().info("Plugin started");
 
         // Enable config
@@ -33,10 +30,10 @@ public final class AmazinUtilities extends JavaPlugin {
         config = getConfig();
 
         // Registering listeners
-        pm.registerEvents(new MovementListener(), this);
-        pm.registerEvents(new JoinLeaveListener(), this);
-        pm.registerEvents(new DeathListener(), this);
-        pm.registerEvents(new ChatListener(), this);
+        getServer().getPluginManager().registerEvents(new MovementListener(), this);
+        getServer().getPluginManager().registerEvents(new JoinLeaveListener(), this);
+        getServer().getPluginManager().registerEvents(new DeathListener(), this);
+        getServer().getPluginManager().registerEvents(new ChatListener(), this);
 
         // Registering commands
         getCommand("gma").setExecutor(new GamemodeAdventureCommand());
@@ -54,11 +51,12 @@ public final class AmazinUtilities extends JavaPlugin {
         getCommand("ybar").setExecutor(new YBossBarCommand());
         getCommand("shutdown").setExecutor(new ShutdownCommand());
         getCommand("chatcolor").setExecutor(new ChatColorCommand());
-        getCommand("chatcolor").setTabCompleter(new ChatColorTabComplete());
+        getCommand("chatcolor").setTabCompleter(new ChatColorTabCompleter());
         getCommand("tpall").setExecutor(new TpallCommand());
         getCommand("kickall").setExecutor(new KickAllCommand());
         getCommand("ping").setExecutor(new PingCommand());
-        getCommand("amazinutilitiesreload").setExecutor(new ReloadConfigCommand(this));
+        getCommand("amazinutilities").setExecutor(new AmazinUtilitiesCommand(this));
+        getCommand("amazinutilities").setTabCompleter(new AmazinUtilitiesTabCompleter());
         getCommand("rules").setExecutor(new RulesCommand());
         getCommand("whois").setExecutor(new WhoIsCommand());
         getCommand("fly").setExecutor(new FlyCommand());

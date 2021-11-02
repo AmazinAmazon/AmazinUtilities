@@ -74,9 +74,9 @@ commands:
   seetime:
     description: See the time in your world
     usage: /<command>
-  amazinutilitiesreload:
-    description: Reloads the configuration
-    usage: /<command>
+  amazinutilities:
+    description: Info on the plugin
+    usage: /<command> [reload]
   rules:
     description: Read the server rules
     usage: /<command>
