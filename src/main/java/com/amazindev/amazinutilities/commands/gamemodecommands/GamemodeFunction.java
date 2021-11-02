@@ -5,9 +5,12 @@ import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.GameMode;
 import org.bukkit.command.CommandSender;
+import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Player;
+import org.bukkit.plugin.java.JavaPlugin;
 
 public class GamemodeFunction {
+    public static JavaPlugin plugin = AmazinUtilities.getPlugin(AmazinUtilities.class);
 
     public static void Gamemode(String[] args, CommandSender sender, String permission, String othersPermission, GameMode gameMode) {
         if (args.length > 0) {
