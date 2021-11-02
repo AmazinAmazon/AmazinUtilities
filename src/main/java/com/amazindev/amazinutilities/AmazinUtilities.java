@@ -10,23 +10,33 @@ import com.amazindev.amazinutilities.listeners.JoinLeaveListener;
 import com.amazindev.amazinutilities.listeners.ChatListener;
 import com.amazindev.amazinutilities.listeners.MovementListener;
 import com.amazindev.amazinutilities.listeners.tabcompleters.ChatColorTabComplete;
+import org.bukkit.Bukkit;
+import org.bukkit.configuration.file.FileConfiguration;
+import org.bukkit.configuration.file.YamlConfiguration;
+import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
+
+import java.io.File;
 
 public final class AmazinUtilities extends JavaPlugin {
 
+    public static FileConfiguration config;
+    public static PluginManager pm;
+
     @Override
     public void onEnable() {
+        pm = getServer().getPluginManager();
         getLogger().info("Plugin started");
 
         // Enable config
-        getConfig().options().copyDefaults(true);
         saveDefaultConfig();
+        config = getConfig();
 
         // Registering listeners
-        getServer().getPluginManager().registerEvents(new MovementListener(), this);
-        getServer().getPluginManager().registerEvents(new JoinLeaveListener(), this);
-        getServer().getPluginManager().registerEvents(new DeathListener(), this);
-        getServer().getPluginManager().registerEvents(new ChatListener(), this);
+        pm.registerEvents(new MovementListener(), this);
+        pm.registerEvents(new JoinLeaveListener(), this);
+        pm.registerEvents(new DeathListener(), this);
+        pm.registerEvents(new ChatListener(), this);
 
         // Registering commands
         getCommand("gma").setExecutor(new GamemodeAdventureCommand());
@@ -48,13 +58,21 @@ public final class AmazinUtilities extends JavaPlugin {
         getCommand("tpall").setExecutor(new TpallCommand());
         getCommand("kickall").setExecutor(new KickAllCommand());
         getCommand("ping").setExecutor(new PingCommand());
+        getCommand("amazinutilitiesreload").setExecutor(new ReloadConfigCommand(this));
+        getCommand("rules").setExecutor(new RulesCommand());
+        getCommand("whois").setExecutor(new WhoIsCommand());
         getCommand("fly").setExecutor(new FlyCommand());
         getCommand("seetime").setExecutor(new TimeCommand());
-        getCommand("whois").setExecutor(new WhoIsCommand());
+
+    }
+
+    public void reload() {
+        reloadConfig();
+        config = getConfig();
     }
 
     @Override
     public void onDisable() {
-        // Plugin shutdown logic
+        getLogger().info("Plugin stopped");
     }
 }
