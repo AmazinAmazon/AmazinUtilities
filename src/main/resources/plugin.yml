@@ -83,3 +83,6 @@ commands:
   whois:
     description: Know everything about someone
     usage: /<command> <player>
+  home:
+    description: Create and teleport to a home
+    usage: /<command> <set/delete|args>

@@ -1,8 +1,22 @@
+# Do not touch this
+configVersion: 1.1
+
+#******************#
+#      Rules       #
+#******************#
 # Rules command, you can use color codes if you want. \n For a new line
 rules: "[1] Be kind \n[2] Respect other players \n[3] Listen to staff \n[4] Have fun!"
-#*****************************#
-# Language config starts here #
-#*****************************#
+
+#******************#
+#      Homes       #
+#******************#
+enableHomes: false
+# Permission amazinutilities.home.default, bypass this amount with amazinutilities.home.bypass
+defaultMaxHomes: 2
+
+#******************#
+# Language config  #
+#******************#
 noPerms: "You don't have permission to execute this command " # + permission node
 playerNotFound: "That player doesn't exist or isn't online"
 onlyPlayer: "This command can only be executed by a player"
@@ -31,11 +45,21 @@ serverShuttingDown1: "SERVER SHUTTING DOWN IN 1 SECONDS"
 spawnConfirm: "Teleported to spawn successfully"
 enabledYBar: "Enabled Y bar."
 disabledYBar: "Disabled Y bar."
-ybossbarText: "Your y coord is: " # + player's y cord
+ybossbarText: "Your y coordinate is: " # + player's y coordinate
 deathLocation: "Your death location is: " # + player's death coordinates
 join: "Welcome back " # + player's name
 firstJoina: "Welcome " # + player's name
 firstJoinb: " to the server! Have fun!"
 leave: " has left the server. See you soon!"
+#     ^ player name
 worldIs: "The time in your world is "
-# player name + ^
+noHome: "Please provide a name to your home"
+homeDisabled: "Homes are disabled in this server. You can enable them in the configuration file."
+successfullySetHome: "Successfully set home"
+successfullyReplacedHome: "Successfully replaced home"
+successfullyTeleportedHome: "Successfully teleported you to your home"
+successfullyDeletedHome: "Successfully deleted your home"
+unvalidHome: "This home doesn't exist."
+# Replaces {0} by the amount
+numberOfHomes: "You have {0} home(s)"
+maxHomes: "You already have the maximum number of homes"
